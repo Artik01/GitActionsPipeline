@@ -1,9 +1,8 @@
 runs:
   using: "composite"
   steps: 
-    - name: Install depedencies
+    - name: Install required libs
       run: |
         echo Installing required libraries
-        dir
         pip install -r requirements.txt
       shell: bash
