@@ -6,4 +6,4 @@ runs:
       run: |
         echo Installing required libraries
         pip install -r requirements.txt
-      shell: bash
+      shell: cmd
