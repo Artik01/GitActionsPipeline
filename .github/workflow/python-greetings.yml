@@ -31,7 +31,7 @@ jobs:
       - uses: ./.github/actions/deploy
         with:
           port: 7001
-          environment: 'dev'
+          env: 'dev'
 
   tests-on-dev:
     runs-on: self-hosted
@@ -44,7 +44,7 @@ jobs:
           path: 'working-directory'
       - uses: ./.github/actions/test
         with:
-          environment: 'dev'
+          env: 'dev'
 
   deploy-to-staging:
     runs-on: self-hosted
@@ -58,7 +58,7 @@ jobs:
       - uses: ./.github/actions/deploy
         with:
           port: 7002
-          environment: 'staging'
+          env: 'staging'
 
   tests-on-staging:
     runs-on: self-hosted
@@ -71,7 +71,7 @@ jobs:
           path: 'working-directory'
       - uses: ./.github/actions/test
         with:
-          environment: 'staging'
+          env: 'staging'
 
   deploy-to-preprod:
     runs-on: self-hosted
@@ -85,7 +85,7 @@ jobs:
       - uses: ./.github/actions/deploy
         with:
           port: 7003
-          environment: 'preprod'
+          env: 'preprod'
 
   tests-on-preprod:
     runs-on: self-hosted
@@ -98,7 +98,7 @@ jobs:
           path: 'working-directory'
       - uses: ./.github/actions/test
         with:
-          environment: 'preprod'
+          env: 'preprod'
   deploy-to-prod:
     runs-on: self-hosted
     needs: [tests-on-preprod]
@@ -111,7 +111,7 @@ jobs:
       - uses: ./.github/actions/deploy
         with:
           port: 7004
-          environment: 'prod'
+          env: 'prod'
 
   tests-on-prod:
     runs-on: self-hosted
@@ -124,4 +124,4 @@ jobs:
           path: 'working-directory'
       - uses: ./.github/actions/test
         with:
-          environment: 'prod'
+          env: 'prod'
