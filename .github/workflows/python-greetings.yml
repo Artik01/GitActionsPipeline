@@ -1,9 +1,6 @@
 name: Python Greetings
 
 on:
-  push:
-    branches: [ "main" ]
-  
   workflow_dispatch:
 
 jobs:
