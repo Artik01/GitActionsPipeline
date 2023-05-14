@@ -9,7 +9,7 @@ runs:
   using: "composite"
   steps: 
     - name: Print output
-      run: Deploying into ${{ inputs.env }}
+      run: echo Deploying into ${{ inputs.env }}
       shell: cmd
     - name: Delete service
       working-directory: working-dir
