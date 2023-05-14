@@ -2,6 +2,7 @@ runs:
   using: "composite"
   steps: 
     - name: Install required libs
+      working-directory: working-dir
       run: |
         echo Installing required libraries
         pip install -r requirements.txt
