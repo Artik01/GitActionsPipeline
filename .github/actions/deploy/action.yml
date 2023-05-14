@@ -12,8 +12,10 @@ runs:
       run: Deploying into ${{ inputs.env }}
       shell: bash
     - name: Delete service
+      working-directory: working-dir
       run : pm2 delete greetings-app-${{ inputs.env }} || set "ErrorLevel=0"
       shell: bash
     - name: Start service
+      working-directory: working-dir
       run : pm2 start app.py --name greetings-app-${{ inputs.env }} -- --port ${{ inputs.port }}
       shell: bash
