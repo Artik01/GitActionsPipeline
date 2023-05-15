@@ -12,11 +12,12 @@ runs:
       run: echo Deploying into ${{ inputs.env }}
       shell: cmd
     - name: Delete service
+      needs: [Print output]
       working-directory: deploy-dir
-#      run : pm2 delete greetings-app-${{ inputs.env }} || EXIT /B 0
-      run : EXIT /B 0
+      run : pm2 delete greetings-app-${{ inputs.env }} || EXIT /B 0
       shell: cmd
     - name: Start service
+      needs: [Restart service]
       working-directory: deploy-dir
       run : pm2 start app.py --name greetings-app-${{ inputs.env }} -- --port ${{ inputs.port }}
       shell: cmd
