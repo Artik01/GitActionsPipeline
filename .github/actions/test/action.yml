@@ -6,7 +6,7 @@ runs:
   using: "composite"
   steps: 
     - name: Test programm
-      working-directory: working-dir
+      working-directory: test-dir
       run: |
         echo Testing of programm from ${{ inputs.env }}
         npm install
