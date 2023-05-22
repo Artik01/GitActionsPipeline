@@ -8,10 +8,13 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3.5.2
+        with:
+          clean: false
       - uses: actions/checkout@v3.5.2
         with:
           repository: 'mtararujs/python-greetings'
           path: 'deploy-dir'
+          clean: false
       - uses: ./.github/actions/install
 
   deploy-to-dev:
@@ -19,10 +22,13 @@ jobs:
     needs: [install-pip-deps]
     steps:
       - uses: actions/checkout@v3.5.2
+        with:
+          clean: false
       - uses: actions/checkout@v3.5.2
         with:
           repository: 'mtararujs/python-greetings'
           path: 'deploy-dir'
+          clean: false
       - uses: ./.github/actions/deploy
         with:
           port: 7001
@@ -33,10 +39,13 @@ jobs:
     needs: [deploy-to-dev]
     steps:
       - uses: actions/checkout@v3.5.2
+        with:
+          clean: false
       - uses: actions/checkout@v3.5.2
         with:
           repository: 'mtararujs/course-js-api-framework'
           path: 'test-dir'
+          clean: false
       - uses: ./.github/actions/test
         with:
           env: 'dev'
@@ -46,10 +55,13 @@ jobs:
     needs: [tests-on-dev]
     steps:
       - uses: actions/checkout@v3.5.2
+        with:
+          clean: false
       - uses: actions/checkout@v3.5.2
         with:
           repository: 'mtararujs/python-greetings'
           path: 'deploy-dir'
+          clean: false
       - uses: ./.github/actions/deploy
         with:
           port: 7002
@@ -60,10 +72,13 @@ jobs:
     needs: [deploy-to-staging]
     steps:
       - uses: actions/checkout@v3.5.2
+        with:
+          clean: false
       - uses: actions/checkout@v3.5.2
         with:
           repository: 'mtararujs/course-js-api-framework'
           path: 'test-dir'
+          clean: false
       - uses: ./.github/actions/test
         with:
           env: 'staging'
@@ -73,10 +88,13 @@ jobs:
     needs: [tests-on-staging]
     steps:
       - uses: actions/checkout@v3.5.2
+        with:
+          clean: false
       - uses: actions/checkout@v3.5.2
         with:
           repository: 'mtararujs/python-greetings'
           path: 'deploy-dir'
+          clean: false
       - uses: ./.github/actions/deploy
         with:
           port: 7003
@@ -87,10 +105,13 @@ jobs:
     needs: [deploy-to-preprod]
     steps:
       - uses: actions/checkout@v3.5.2
+        with:
+          clean: false
       - uses: actions/checkout@v3.5.2
         with:
           repository: 'mtararujs/course-js-api-framework'
           path: 'test-dir'
+          clean: false
       - uses: ./.github/actions/test
         with:
           env: 'preprod'
@@ -99,10 +120,13 @@ jobs:
     needs: [tests-on-preprod]
     steps:
       - uses: actions/checkout@v3.5.2
+        with:
+          clean: false
       - uses: actions/checkout@v3.5.2
         with:
           repository: 'mtararujs/python-greetings'
           path: 'deploy-dir'
+          clean: false
       - uses: ./.github/actions/deploy
         with:
           port: 7004
@@ -113,10 +137,13 @@ jobs:
     needs: [deploy-to-prod]
     steps:
       - uses: actions/checkout@v3.5.2
+        with:
+          clean: false
       - uses: actions/checkout@v3.5.2
         with:
           repository: 'mtararujs/course-js-api-framework'
           path: 'test-dir'
+          clean: false
       - uses: ./.github/actions/test
         with:
           env: 'prod'
